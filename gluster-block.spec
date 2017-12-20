@@ -1,7 +1,7 @@
 Summary:          Gluster block storage utility
 Name:             gluster-block
 Version:          0.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 License:          GPLv2 or LGPLv3+
 URL:              https://github.com/gluster/gluster-block
 Source0:          https://github.com/gluster/%{name}/archive/v%{version}/%{name}-%{version}.tar.gz
@@ -16,7 +16,7 @@ BuildRequires:    systemd
 # tarball releases require running ./autogen.sh
 BuildRequires:    automake, autoconf, libtool, git
 
-Requires:         tcmu-runner >= 1.0.4
+Requires:         tcmu-runner-handler-glfs >= 1.0.4
 Requires:         targetcli >= 2.1.fb43
 Requires:         rpcbind
 
@@ -60,6 +60,9 @@ echo %{version} > VERSION
 %config(noreplace) %{_sysconfdir}/sysconfig/gluster-blockd
 
 %changelog
+* Wed Dec 20 2017 Niels de Vos <ndevos@redhat.com> - 0.3-2
+- tcmu-runner has subpackages now, we need tcmu-runner-handler-glfs
+
 * Mon Nov 06 2017 Prasanna Kumar Kalever <prasanna.kalever@redhat.com> - 0.3-1
 - Update to 0.3
 
